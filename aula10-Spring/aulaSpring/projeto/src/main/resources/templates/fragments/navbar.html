@@ -1,11 +1,29 @@
-<!-- src/main/resources/templates/fragments/navbar.html -->
-<nav th:fragment="navbar" xmlns:th="http://www.thymeleaf.org" class="navbar" >
-  <!-- checkbox para toggle -->
-  <input type="checkbox" id="menu-checkbox" hidden>
-  <label for="menu-checkbox" class="menu-toggle">☰</label>
+<nav th:fragment="navbar" xmlns:th="http://www.thymeleaf.org">
+    
+    <header class="topbar">
+        <label for="drawer-toggle" class="drawer-toggle-btn">☰</label>
+        <div class="logo">Gerenciador</div>
+    </header>
 
-  <ul class="nav-list">
-    <li><a th:href="@{/pessoas/listar}" class="nav-link">Lista</a></li>
-    <li><a th:href="@{/pessoas/cadastrar}" class="nav-link">Cadastrar</a></li>
-  </ul>
+    <input type="checkbox" id="drawer-toggle" class="drawer-checkbox" hidden>
+
+    <label for="drawer-toggle" class="drawer-overlay"></label>
+
+    <aside class="drawer">
+        <div class="drawer-header">
+            <h2>Menu</h2>
+            <label for="drawer-toggle" class="close-btn">&times;</label>
+        </div>
+        
+        <ul class="drawer-list">
+            <li class="drawer-title">Pessoas</li>
+            <li><a th:href="@{/pessoas/listar}" class="drawer-link">Lista Pessoas</a></li>
+            <li><a th:href="@{/pessoas/cadastrar}" class="drawer-link">Cadastrar Pessoa</a></li>
+            
+            <li class="drawer-title">Produtos</li>
+            <li><a th:href="@{/produtos/listar}" class="drawer-link">Lista Produtos</a></li>
+            <li><a th:href="@{/produtos/cadastrar}" class="drawer-link">Cadastrar Produto</a></li>
+        </ul>
+    </aside>
+
 </nav>
