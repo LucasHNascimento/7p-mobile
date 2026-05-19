@@ -18,10 +18,12 @@ export default function ProdutoFormScreen({ route, navigation }) {
 
         try {
             if (produtoEdit) {
-                await api.put(`/produtos/${produtoEdit.id}`, produtoData);
+                // CORREÇÃO: Adicionado /api/
+                await api.put(`/api/produtos/${produtoEdit.id}`, produtoData);
                 Alert.alert('Sucesso', 'Produto atualizado!');
             } else {
-                await api.post('/produtos', produtoData);
+                // CORREÇÃO: Adicionado /api/
+                await api.post('/api/produtos', produtoData);
                 Alert.alert('Sucesso', 'Produto cadastrado!');
             }
             navigation.goBack();

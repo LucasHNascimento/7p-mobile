@@ -16,7 +16,8 @@ export default function ProdutoListScreen({ navigation }) {
 
     const carregarProdutos = async () => {
         try {
-            const response = await api.get('/produtos');
+            // CORREÇÃO: Adicionado /api/produtos
+            const response = await api.get('/api/produtos');
             setProdutos(response.data);
         } catch (error) {
             console.error("Erro ao buscar produtos", error);

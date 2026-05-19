@@ -16,7 +16,8 @@ export default function ProdutoDetailScreen({ route, navigation }) {
                     style: "destructive",
                     onPress: async () => {
                         try {
-                            await api.delete(`/produtos/${produto.id}`);
+                            // CORREÇÃO: Adicionado /api/
+                            await api.delete(`/api/produtos/${produto.id}`);
                             Alert.alert("Sucesso", "Produto excluído.");
                             navigation.navigate('ProdutoList');
                         } catch (error) {

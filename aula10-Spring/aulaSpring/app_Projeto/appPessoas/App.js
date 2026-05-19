@@ -6,13 +6,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 
-// Importações de Pessoas (Já existem no seu projeto)
+// Importações de Pessoas
 import PessoaListScreen from './src/screens/PessoaListScreen';
 import PessoaFormScreen from './src/screens/PessoaFormScreen';
 import PessoaDetailScreen from './src/screens/PessoaDetailScreen';
 
-// Importações de Produtos (Você criou no passo 1)
+// Importações de Produtos
 import ProdutoListScreen from './src/screens/ProdutoListScreen';
+import ProdutoFormScreen from './src/screens/ProdutoFormScreen';
+import ProdutoDetailScreen from './src/screens/ProdutoDetailScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,6 +48,8 @@ function ProdutosStack() {
       }}
     >
       <Stack.Screen name="ProdutoList" component={ProdutoListScreen} options={{ title: 'Produtos' }} />
+      <Stack.Screen name="ProdutoForm" component={ProdutoFormScreen} options={{ title: 'Cadastro de Produto' }} />
+      <Stack.Screen name="ProdutoDetail" component={ProdutoDetailScreen} options={{ title: 'Detalhes' }} />
     </Stack.Navigator>
   );
 }
