@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Cadastrar Produto</title>
+    <title>Cadastrar / Editar Produto</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -9,9 +9,12 @@
     <div th:replace="fragments/navbar :: navbar"></div>
 
     <main class="main-content">
-        <h1>Cadastrar Produto</h1>
-        <form th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post">
+        <h1 th:text="${produto.id == null ? 'Cadastrar Produto' : 'Editar Produto'}">Cadastrar Produto</h1>
+        
+        <form th:action="@{${produto.id == null ? '/produtos/cadastrar' : '/produtos/' + produto.id + '/editar'}}" th:object="${produto}" method="post">
+            
             <input type="hidden" th:field="*{id}" />
+            
             <div>
                 <label>Nome:</label>
                 <input type="text" th:field="*{nome}" placeholder="Nome do produto" />
