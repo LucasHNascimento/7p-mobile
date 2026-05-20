@@ -5,9 +5,9 @@ POST {{ base_url }}/api/produtos
 Content-Type: application/json
 
 {
-  "nome": "Notebook",
-  "quantidade": 10,
-  "valor": 3899.99
+  "nome": "Manga",
+  "quantidade": 17,
+  "valor": 22.99
 }
 
 ### Listar todos os produtos
@@ -23,7 +23,7 @@ PUT {{ base_url }}/api/produtos/1
 Content-Type: application/json
 
 {
-  "nome": "Notebook Pro",
+  "nome": "Notebook Dell",
   "quantidade": 5,
   "valor": 4299.99
 }
