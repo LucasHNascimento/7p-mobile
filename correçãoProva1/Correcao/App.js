@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
-import { View, TextInput } from 'react-native';
-import Mensagem from './components/Mensagem';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import Home from './components/Home';
+import Questao5 from './components/Questao5';
+import Questao10 from './components/Questao10';
+import Questao12 from './components/Questao12';
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
- const [texto, setTexto] = useState('');
-  
   return (
-    <View style={{ flex: 1, marginTop: 50, padding: 20 }}>
-      <TextInput
-        placeholder="Digite seu texto"
-        value={texto}
-        onChangeText={setTexto}
-        style={{ borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 20 }}
-      />
-      <Mensagem texto={texto} />
-    </View>
-    ); 
-
-    //Home
-    /*return (
-      <View>
-        <Home/>
-      </View>
-    )*/
-
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen
+          name="Home"
+          component={Home}
+          options={{ title: 'Home' }}
+        />
+        <Drawer.Screen
+          name="Questao5"
+          component={Questao5}
+          options={{ title: 'Mensagem' }}
+        />
+        <Drawer.Screen
+          name="Questao10"
+          component={Questao10}
+          options={{ title: 'Pilha' }}
+        />
+        <Drawer.Screen
+          name="Questao12"
+          component={Questao12}
+          options={{ title: 'Tabs' }}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 }
